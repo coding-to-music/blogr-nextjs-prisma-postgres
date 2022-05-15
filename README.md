@@ -182,7 +182,9 @@ Create the tables in your database based on your Prisma schema.
 
 You should see the following output:
 
+```java
 Environment variables loaded from /Users/nikolasburk/Desktop/nextjs-guide/blogr-starter/.env
+```
 
 Prisma schema loaded from prisma/schema.prisma
 
@@ -223,6 +225,21 @@ npx prisma generate
 ```
 
 Regenerate your Prisma Schema.
+
+Output
+
+```java
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+
+✔ Generated Prisma Client (3.14.0 | library) to ./node_modules/@prisma/client in 147ms
+You can now start using Prisma Client in your code. Reference: https://pris.ly/d/client
+
+
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+
+```
 
 You'll use a single PrismaClient instance that you can import into any file where it's needed. The instance will be created in a prisma.ts file inside the lib/ directory. Go ahead and create the missing directory and file:
 
