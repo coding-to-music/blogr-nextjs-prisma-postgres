@@ -1,11 +1,19 @@
 {
-  "name": "hello-next",
+  "name": "blogr-nextjs-prisma-postgres",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "14.x"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    ".next/cache"
+  ],
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "git add . && git commit -m Build && git push && vercel --prod"
   },
   "keywords": [],
   "author": "",
