@@ -82,6 +82,8 @@ Here's what it looks like at the moment:
 
 https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/1.png
 
+![Current state of the application.](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/1.png?raw=true)
+
 Current state of the application.
 
 The app currently displays hardcoded data that's returned from getStaticProps in the index.ts file. Over the course of the next few sections, you'll change this so that the data is returned from an actual database.
