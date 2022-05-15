@@ -80,9 +80,7 @@ cd blogr-nextjs-prisma && npm run dev
 Start the Next.js application at https://localhost:3000.
 Here's what it looks like at the moment:
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/1.png
-
-![Current state of the application.](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/1.png?raw=true)
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/1.png?raw=true)
 
 Current state of the application.
 
@@ -119,7 +117,10 @@ Open the .env file and replace the dummy connection URL with the connection URL 
 
 ```java
 // .env
-DATABASE_URL="postgresql://giwuzwpdnrgtzv:d003c6a604bb400ea955c3abd8c16cc98f2d909283c322ebd8e9164b33ccdb75@ec2-54-170-123-247.eu-west-1.compute.amazonaws.com:5432/d6ajekcigbuca9"
+DATABASE_URL: Copy this value directly from your .env file
+GITHUB_ID: Set this to the Client ID of the GitHub OAuth app you just created
+GITHUB_SECRET: Set this to the Client Secret of the GitHub OAuth app you just created
+NEXTAUTH_URL: Set this to the Authorization Callback URL of the GitHub OAuth app you just created
 ```
 
 An example of your Database connection URL string.
@@ -197,11 +198,11 @@ Open Prisma Studio, a GUI for modifying your database.
 
 Use Prisma Studio's interface to create a new User and Post record and connect them via their relation fields.
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/2.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/2.png?raw=true)
 
 Create a new `User` record
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/3.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/3.png?raw=true)
 
 Create a new `Post` record and connect it to the `User` record
 
@@ -342,7 +343,7 @@ http://localhost:3000
 
 in your browser. The Post record will be displayed as follows:
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/4.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/4.png?raw=true)
 Your newly published post.
 
 You can also click on the post to navigate to its detail view.
@@ -452,13 +453,13 @@ Settings, then open to
 Developer Settings, then switch to
 OAuth Apps.
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/5.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/5.png?raw=true)
 Create a new OAuth application inside GitHub.
 
 Clicking on the Register a new application (or New OAuth App) button will redirect you to a registration form to fill out some information for your app. The Authorization callback URL should be the Next.js /api/auth route: http://localhost:3000/api/auth.
 An important thing to note here is that the Authorization callback URL field only supports a single URL, unlike e.g. Auth0, which allows you to add additional callback URLs separated with a comma. This means if you want to deploy your app later with a production URL, you will need to set up a new GitHub OAuth app.
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/6.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/6.png?raw=true)
 
 Ensure your Authorization callback URL is correct.
 
@@ -770,7 +771,7 @@ Once the code is added, you can navigate to
 http://localhost:3000/api/auth/signin
 again. This time, the Sign in with GitHub button is shown.
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/7.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/7.png?raw=true)
 
 Sign in with GitHub using NextAuth.
 
@@ -780,7 +781,7 @@ Note: If you're seeing an error and could not be authenticated, stop the app and
 
 The header layout has now changed to display the buttons for authenticated users.
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/8.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/8.png?raw=true)
 
 The Header displaying a log out button.
 
@@ -836,7 +837,7 @@ In this code, you're using the title and content properties that are extracted f
 
 Afterwards, you're redirecting the user to the /drafts page so that they can immediately see their newly created draft. If you run the app, the /create route renders the following UI:
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/9.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/9.png?raw=true)
 
 Create a new draft.
 
@@ -881,7 +882,7 @@ This code implements the handler function for any requests coming in at the /api
 
 You can now test this functionality by opening the app, making sure you're authenticated and create a new post with title and content:
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/10.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/10.png?raw=true)
 
 Testing creating a new post via the API Route.
 
@@ -991,7 +992,7 @@ In this React component, you're rendering a list of "drafts" of the authenticate
 
 If you now navigate to the My drafts section of the app, you'll see the unpublished post that you created before:
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/11.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/11.png?raw=true)
 
 Completed drafts page.
 
@@ -1124,7 +1125,7 @@ Update the Post component to handle publishing via the API Route.
 
 This code adds the publishPost function to the React component which is responsible for sending the HTTP PUT request to the API route you just implemented. The render function of the component is also adjusted to check whether the user is authenticated, and if that's the case, it'll display the Publish button in the post detail view as well:
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/12.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/12.png?raw=true)
 
 The publish button shown for a post.
 
@@ -1192,7 +1193,7 @@ Logic to determine whether to show the publish and delete buttons.
 
 You can now try out the new functionality by creating a new draft, navigating to its detail view and then clicking the newly appearing Delete button:
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/13.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/13.png?raw=true)
 
 The Delete button showing on the post page.
 
@@ -1213,7 +1214,7 @@ Before you can deploy, you need to:
 
   The Authorization Callback URL must therefore be set to https://FIRSTNAME-LASTNAME-blogr-nextjs-prisma.vercel.app/api/auth. Once you created the application, adjust your .env file and set the Client ID as the GITHUB_ID env var and a Client secret as the GITHUB_SECRET env var. The NEXTAUTH_URL env var needs to be set to the same value as the Authorization Callback URL on GitHub: https://FIRSTNAME-LASTNAME-blogr-nextjs-prisma.vercel.app/api/auth.
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/14.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/14.png?raw=true)
 
 Update the Authorization callback URL.
 
@@ -1234,13 +1235,13 @@ Deploy with Vercel button
 
 Now, provide the URL of your GitHub repo in the text field:
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/15.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/15.png?raw=true)
 
 Import a git repository to Vercel.
 
 Click Continue. The next screen requires you to set the environment variables for your production deployment:
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/16.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/16.png?raw=true)
 
 Add environment variables to Vercel.
 
@@ -1252,7 +1253,7 @@ Here's what you need to provide:
 - `NEXTAUTH_URL`: Set this to the Authorization Callback URL of the GitHub OAuth app you just created
   Once all environment variables are set, hit Deploy. Your app is now being deployed to Vercel. Once it's ready, Vercel will show you the following success screen:
 
-https://vercel.com/docs-proxy/static/guides/nextjs-prisma-postgres/17.png
+![image](https://github.com/coding-to-music/blogr-nextjs-prisma-postgres/blob/main/images/17.png?raw=true)
 
 Your application deployed to Vercel.
 
