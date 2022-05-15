@@ -6,6 +6,8 @@ https://github.com/coding-to-music/blogr-nextjs-prisma-postgres
 
 https://blogr-nextjs-prisma-postgres.vercel.app
 
+https://blogr-nextjs-prisma-postgres.vercel.app/api/auth
+
 By Vercel NextJS Guide
 
 https://vercel.com/guides/nextjs-prisma-postgres
