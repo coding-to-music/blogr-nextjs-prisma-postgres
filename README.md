@@ -1403,3 +1403,114 @@ You can click the Visit button to view the deployed version of your fullstack ap
 ## Conclusion
 
 In this guide, you learned how to build and deploy a fullstack application using Next.js, Prisma, and PostgreSQL. If you ran into issue or have any questions about this guide, feel free to raise them on GitHub or drop them in the Prisma Slack.
+
+# How to Load Data from a File in Next.js
+
+https://vercel.com/guides/loading-static-file-nextjs-api-route
+
+By the end of this tutorial, you will be able to display the contents of a static json file in your front-end by using `SWR` and `Next.js` API routes.
+
+Static json files can be used to store data that does not change regularly, and is used by multiple pages. These files can be stored in your applications public folder, and loaded directly with a GET request. This approach can have security concerns however. A possible solution is to:
+
+- Store your json files in a private folder inside your application
+- Construct an API endpoint to load these files using the file system
+- Connect to the API endpoint in your front-end and display the data
+
+## Prerequisites
+
+Before getting started, you should be able to:
+
+- Deploy a Next.js app on Vercel
+
+Familiar with
+
+- Next.js
+- API routes
+- Install SWR in your project
+
+## Set up the json data
+
+Given a basic Next.js project created with npx create-next-app@latest or a new template on Vercel, let's create a folder called json at the root of the project, and inside it, create a file called data.json.
+
+Begin by pasting the following content into the data.json file:
+
+```java
+{
+  "record": {
+    "id": 8221,
+    "uid": "a15c1f1d-9e4e-4dc7-9c45-c04412fc5064",
+    "name": "Next.js",
+    "language": "JavaScript"
+  }
+}
+```
+
+## Add the API route
+
+Next add a file called staticdata.js inside the pages/api folder. This will create a Serverless Function that will load the json data from the file, and return it as a response.
+
+Now paste the following code in the staticdata.js file:
+
+```java
+import path from 'path';
+import { promises as fs } from 'fs';
+
+export default async function handler(req, res) {
+  //Find the absolute path of the json directory
+  const jsonDirectory = path.join(process.cwd(), 'json');
+  //Read the json data file data.json
+  const fileContents = await fs.readFile(jsonDirectory + '/data.json', 'utf8');
+  //Return the content of the data file in json format
+  res.status(200).json(fileContents);
+}
+```
+
+Code reading the `/json/data.json` file and returning it's contents
+
+## Display the data using SWR
+
+Inside the index.js file, located in the pages folder, replace the content with the following code:
+
+```java
+//useSWR allows the use of SWR inside function components
+import useSWR from 'swr';
+
+//Write a fetcher function to wrap the native fetch function and return the result of a call to url in json format
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+export default function Index() {
+  //Set up SWR to run the fetcher function when calling "/api/staticdata"
+  //There are 3 possible states: (1) loading when data is null (2) ready when the data is returned (3) error when there was an error fetching the data
+  const { data, error } = useSWR('/api/staticdata', fetcher);
+
+  //Handle the error state
+  if (error) return <div>Failed to load</div>;
+  //Handle the loading state
+  if (!data) return <div>Loading...</div>;
+  //Handle the ready state and display the result contained in the data object mapped to the structure of the json file
+  return (
+    <div>
+      <h1>My Framework from file</h1>
+      <ul>
+        <li>Name: {data.record.name}</li>
+        <li>Language: {data.record.language}</li>
+      </ul>
+    </div>
+  );
+}
+```
+
+This code uses SWR to make a request to the API route /api/staticdata and display some of the content in the browser.
+
+- Make sure you installed swr in your project using yarn add swr or npm install swr
+- Run your application locally using npm run dev
+
+When you browse to localhost:3000, you should see the same content as on this page. You can now deploy your application to Vercel to produce the same results.
+
+That's it!
+
+As reference:
+
+- Repository for the source code used above
+- Get started with SWR to take advantage of keeping your data fresh without having to write additional code
+- Learn more about API routes in Next.js
