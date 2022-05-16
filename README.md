@@ -1313,6 +1313,7 @@ async function deletePost(id: string): Promise<void> {
 ```
 
 Update the Post component to handle deleting via the API Route.
+
 Now, you can follow a similar approach with the Delete button as you did with the Publish button and render it only if the user is authenticated. To achieve this, you can add this code directly in the return part of the Post component right below where the Publish button is rendered:
 
 ```java
