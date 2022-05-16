@@ -12,6 +12,8 @@ const Header: React.FC = () => {
 
   const { data: session, status } = useSession();
 
+  LogRocket.init("zas8ib/blogr-nextjs-prisma-postgres");
+
   let left = (
     <div className="left">
       <Link href="/">
@@ -85,6 +87,10 @@ const Header: React.FC = () => {
   }
 
   if (!session) {
+    LogRocket.identify("UNKNOWN_USER", {
+      userinfo: "here is some info",
+    });
+
     right = (
       <div className="right">
         <Link href="/api/auth/signin">
