@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
+import LogRocket from "logrocket";
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -115,6 +116,11 @@ const Header: React.FC = () => {
   }
 
   if (session) {
+    LogRocket.identify("THE_USER_ID_IN_YOUR_APP", {
+      name: session.user.name,
+      email: session.user.email,
+    });
+
     left = (
       <div className="left">
         <Link href="/">
