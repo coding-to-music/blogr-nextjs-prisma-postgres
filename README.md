@@ -1304,15 +1304,12 @@ To make use of this feature on the frontend, you again need to adjust the post d
 
 ```java
 // pages/p/[id].tsx
-{
-  !props.published && userHasValidSession && postBelongsToUser && (
-    <button onClick={() => publishPost(props.id)}>Publish</button>
-  );
-}
-{
-  userHasValidSession && postBelongsToUser && (
-    <button onClick={() => deletePost(props.id)}>Delete</button>
-  );
+
+async function deletePost(id: string): Promise<void> {
+  await fetch(`/api/post/${id}`, {
+    method: 'DELETE',
+  });
+  Router.push('/');
 }
 ```
 
