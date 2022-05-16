@@ -122,7 +122,11 @@ const Header: React.FC = () => {
       userinfo: "here is some info",
     });
 
-    console.log(session);
+    console.log(session.user.email, {
+      name: session.user.name,
+      email: session.user.email,
+      userinfo: "here is some info",
+    });
 
     left = (
       <div className="left">
