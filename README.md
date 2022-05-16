@@ -37,6 +37,39 @@ vercel --prod --confirm
 
 https://vercel.com/guides/nextjs-prisma-postgres
 
+## Step 3. Install and generate Prisma Client
+
+Before you can access your database from Next.js using Prisma, you first need to install Prisma Client in your app. You can install it via npm as follows:
+
+```java
+npm install @prisma/client
+```
+
+Install the Prisma Client package.
+
+Because Prisma Client is tailored to your own schema, you need to update it every time your Prisma schema file is changing by running the following command:
+
+```java
+npx prisma generate
+```
+
+Regenerate your Prisma Schema.
+
+Output
+
+```java
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+
+✔ Generated Prisma Client (3.14.0 | library) to ./node_modules/@prisma/client in 147ms
+You can now start using Prisma Client in your code. Reference: https://pris.ly/d/client
+
+
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+
+```
+
 # Fullstack Authentication Example with Next.js and NextAuth.js
 
 This is the starter project for the fullstack tutorial with Next.js and Prisma. You can find the final version of this project in the [`final`](https://github.com/prisma/blogr-nextjs-prisma/tree/final) branch of this repo.
