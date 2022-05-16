@@ -1,6 +1,16 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { GA_TRACKING_ID } from "../lib/gtag";
 
+// import FingerprintJS from "@fingerprintjs/fingerprintjs-pro";
+
+// Initialize an agent at application startup.
+// const fpPromise = FingerprintJS.load({ apiKey: "o6o11R6yNNN96RpBRfZ2" });
+
+// Get the visitor identifier when you need it.
+// fpPromise
+//   .then((fp) => fp.get())
+//   .then((result) => console.log(result.visitorId));
+
 class MyDocument extends Document {
   render() {
     return (
