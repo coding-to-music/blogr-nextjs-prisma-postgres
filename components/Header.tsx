@@ -116,9 +116,10 @@ const Header: React.FC = () => {
   }
 
   if (session) {
-    LogRocket.identify("THE_USER_ID_IN_YOUR_APP", {
+    LogRocket.identify(session.user.email, {
       name: session.user.name,
       email: session.user.email,
+      userinfo: "here is some info",
     });
 
     console.log(session);
