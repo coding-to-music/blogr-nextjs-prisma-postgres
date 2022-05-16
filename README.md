@@ -1293,7 +1293,6 @@ export default async function handle(req, res) {
     );
   }
 }
-
 ```
 
 Update the API route to modify the database using the Prisma Client.
@@ -1310,6 +1309,23 @@ async function deletePost(id: string): Promise<void> {
     method: 'DELETE',
   });
   Router.push('/');
+}
+```
+
+Update the Post component to handle deleting via the API Route.
+Now, you can follow a similar approach with the Delete button as you did with the Publish button and render it only if the user is authenticated. To achieve this, you can add this code directly in the return part of the Post component right below where the Publish button is rendered:
+
+```java
+// pages/p/[id].tsx
+{
+  !props.published && userHasValidSession && postBelongsToUser && (
+    <button onClick={() => publishPost(props.id)}>Publish</button>
+  );
+}
+{
+  userHasValidSession && postBelongsToUser && (
+    <button onClick={() => deletePost(props.id)}>Delete</button>
+  );
 }
 ```
 
