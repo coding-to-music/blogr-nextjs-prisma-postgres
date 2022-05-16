@@ -121,6 +121,8 @@ const Header: React.FC = () => {
       email: session.user.email,
     });
 
+    console.log(session);
+
     left = (
       <div className="left">
         <Link href="/">
