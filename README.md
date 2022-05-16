@@ -1514,3 +1514,27 @@ As reference:
 - Repository for the source code used above
 - Get started with SWR to take advantage of keeping your data fresh without having to write additional code
 - Learn more about API routes in Next.js
+
+## Move data file to here
+
+How To Copy Files With Rsync Over SSH #275
+
+https://github.com/coding-to-music/coding-to-music.github.io/issues/275
+
+### Install rsync
+
+```java
+sudo apt-get install rsync
+```
+
+### example:
+
+```java
+rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress /root/bigfile.txt 198.222.333.111:/root/
+```
+
+### my changes
+
+```java
+rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress /home/tmc/ap/cambridge-streets/StreetsAndWays20170925.xlsx TomPod:/mnt/volume_nyc1_01/blogr-nextjs-prisma-postgres
+```
