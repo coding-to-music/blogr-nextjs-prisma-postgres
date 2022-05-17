@@ -2,6 +2,12 @@
 
 //useSWR allows the use of SWR inside function components
 import useSWR from "swr";
+import Layout from "../components/Layout";
+import Post, { PostProps } from "../components/Post";
+
+type Props = {
+  drafts: PostProps[];
+};
 
 //Write a fetcher function to wrap the native fetch function and return the result of a call to url in json format
 const fetcher = (url) => fetch(url).then((res) => res.json());
