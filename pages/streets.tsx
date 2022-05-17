@@ -18,7 +18,7 @@ export default function Index() {
   //Handle the ready state and display the result contained in the data object mapped to the structure of the json file
   return (
     <div>
-      <h1>My Framework from file</h1>
+      <h1>JSON from streets.json file</h1>
       <ul>
         <li>FROM: {data.record.from}</li>
         <li>TO: {data.record.to}</li>
