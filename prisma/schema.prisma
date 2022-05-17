@@ -1,4 +1,7 @@
 // schema.prisma
+
+// npx prisma generate
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -7,6 +10,19 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+model Street {
+  id                String  @id @default(cuid())
+  name              String?
+  from              String?
+  to                String?
+  width             Int?
+  length            Int?
+  date              String?
+  noncity           String?
+  unnacceptedlength String?
+}
+
 
 model Post {
   id        String  @id @default(cuid())
