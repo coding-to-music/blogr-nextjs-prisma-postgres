@@ -20,9 +20,42 @@ export default function Index() {
     <div>
       <h1>My Framework from file</h1>
       <ul>
-        <li>Name: {data.record.name}</li>
-        <li>Language: {data.record.language}</li>
+        <li>FROM: {data.record.from}</li>
+        <li>TO: {data.record.to}</li>
+        <li>WIDTH: {data.record.width}</li>
+        <li>LENGTH: {data.record.length}</li>
       </ul>
     </div>
   );
 }
+
+// Sample Data
+
+// {
+//   "record": {
+//     "id": 8221,
+//     "uid": "a15c1f1d-9e4e-4dc7-9c45-c04412fc5064",
+//     "name": "Next.js",
+//     "language": "JavaScript"
+//   }
+// }
+
+// {
+//   "record": [
+//     {
+//       "STREET NAME": "ABERDEEN AVE",
+//       "FROM": "MT AUBURN",
+//       "TO": "HURON AVE",
+//       "Width": "100",
+//       "Length": "1280",
+//       "Date": "1895",
+//       "Non-City": " "
+//     },
+//     {
+//       "STREET NAME": "ABERDEEN CT",
+//       "FROM": "ABERDEEN",
+//       "TO": "EASTERLY",
+//       "Width": "29.33",
+//       "Unnaccepted Length": "100",
+//       "Non-City": "X"
+//     },
