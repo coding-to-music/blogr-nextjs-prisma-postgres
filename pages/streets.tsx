@@ -26,8 +26,8 @@ export default function Index() {
         <li>width: {data.record.width}</li>
         <li>length: {data.record.length}</li>
         <li>date: {data.record.date}</li>
-        <li>non-city: {data.record.non - city}</li>
-        <li>unnaccepted-length: {data.record.unnaccepted - length}</li>
+        <li>non-city: {data.record.noncity}</li>
+        <li>unnaccepted-length: {data.record.unnacceptedlength}</li>
       </ul>
     </div>
   );
