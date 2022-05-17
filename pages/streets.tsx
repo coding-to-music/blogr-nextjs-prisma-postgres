@@ -1,5 +1,6 @@
 // pages/streets.tsx
 
+import React from "react";
 import { GetServerSideProps } from "next";
 import { useSession, getSession } from "next-auth/react";
 import prisma from "../lib/prisma";
@@ -16,7 +17,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     return { props: { streets: [] } };
   }
 
-  const streets = await prisma.post.findMany({
+  const streets = await prisma.street.findMany({
     // where: {
     //   author: { email: session.user.email },
     //   published: false,
@@ -56,10 +57,11 @@ const Streetdata: React.FC<Props> = (props) => {
       <div className="page">
         <h1>Streetdata</h1>
         <main>
-          <ul>
-            <li>name: {data.record.name}</li>
-            <li>length: {data.record.length}</li>
-          </ul>
+          {/* {props.streets.map((street) => (
+            <div key={street.id} className="street">
+              <Street street={street} />
+            </div>
+          ))} */}
         </main>
       </div>
       <div>
