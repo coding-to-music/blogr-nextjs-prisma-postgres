@@ -21,6 +21,8 @@ model Street {
   date              String?
   noncity           String?
   unnacceptedlength String?
+
+  @@map(name: "street")
 }
 
 
