@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     return { props: { streets: [] } };
   }
 
-  const streets = await prisma.street.findMany({
+  const streets = await prisma.post.findMany({
     // where: {
     //   author: { email: session.user.email },
     //   published: false,
