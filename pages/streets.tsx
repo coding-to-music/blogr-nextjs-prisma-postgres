@@ -20,10 +20,14 @@ export default function Index() {
     <div>
       <h1>JSON from streets.json file</h1>
       <ul>
-        <li>FROM: {data.record.from}</li>
-        <li>TO: {data.record.to}</li>
-        <li>WIDTH: {data.record.width}</li>
-        <li>LENGTH: {data.record.length}</li>
+        <li>name: {data.record.name}</li>
+        <li>from: {data.record.from}</li>
+        <li>to: {data.record.to}</li>
+        <li>width: {data.record.width}</li>
+        <li>length: {data.record.length}</li>
+        <li>date: {data.record.date}</li>
+        <li>non-city: {data.record.non - city}</li>
+        <li>unnaccepted-length: {data.record.unnaccepted - length}</li>
       </ul>
     </div>
   );
@@ -41,21 +45,19 @@ export default function Index() {
 // }
 
 // {
-//   "record": [
-//     {
-//       "STREET NAME": "ABERDEEN AVE",
-//       "FROM": "MT AUBURN",
-//       "TO": "HURON AVE",
-//       "Width": "100",
-//       "Length": "1280",
-//       "Date": "1895",
-//       "Non-City": " "
-//     },
-//     {
-//       "STREET NAME": "ABERDEEN CT",
-//       "FROM": "ABERDEEN",
-//       "TO": "EASTERLY",
-//       "Width": "29.33",
-//       "Unnaccepted Length": "100",
-//       "Non-City": "X"
-//     },
+//   "name": "ABERDEEN AVE",
+//   "from": "MT AUBURN",
+//   "to": "HURON AVE",
+//   "width": "100",
+//   "length": "1280",
+//   "date": "1895",
+//   "non-city": " "
+// },
+// {
+//   "name": "ABERDEEN CT",
+//   "from": "ABERDEEN",
+//   "to": "EASTERLY",
+//   "width": "29.33",
+//   "unnaccepted-length": "100",
+//   "non-city": "X"
+// },
