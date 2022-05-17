@@ -1,4 +1,4 @@
-// pages/lists.tsx
+// pages/streets.tsx
 
 import { GetServerSideProps } from "next";
 import { useSession, getSession } from "next-auth/react";
