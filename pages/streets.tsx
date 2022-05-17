@@ -1,12 +1,39 @@
 // pages/lists.tsx
 
+import { GetServerSideProps } from "next";
+import { useSession, getSession } from "next-auth/react";
+import prisma from "../lib/prisma";
+
 //useSWR allows the use of SWR inside function components
 import useSWR from "swr";
 import Layout from "../components/Layout";
-import Post, { PostProps } from "../components/Post";
+import Street, { StreetProps } from "../components/Street";
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const session = await getSession({ req });
+  if (!session) {
+    res.statusCode = 403;
+    return { props: { streets: [] } };
+  }
+
+  const streets = await prisma.street.findMany({
+    // where: {
+    //   author: { email: session.user.email },
+    //   published: false,
+    // },
+    // include: {
+    //   author: {
+    //     select: { name: true },
+    //   },
+    // },
+  });
+  return {
+    props: { streets },
+  };
+};
 
 type Props = {
-  drafts: PostProps[];
+  streets: StreetProps[];
 };
 
 //Write a fetcher function to wrap the native fetch function and return the result of a call to url in json format
