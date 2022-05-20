@@ -13,8 +13,13 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "lint:write": "next lint --cache --fix",
     "seed": "prisma db push && node prisma/seed/index.js",
-    "deploy": "git add . && git commit -m Build && git push && vercel --prod"
+    "deploy": "git add . && git commit -m Build && git push && vercel --prod",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
   },
   "keywords": [],
   "author": "",
@@ -35,6 +40,11 @@
   "devDependencies": {
     "@types/node": "17.0.14",
     "@types/react": "17.0.38",
+    "eslint-config-next": "^12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
+    "prettier": "2.6.2",
     "prisma": "^3.14.0",
     "typescript": "4.5.5"
   }
