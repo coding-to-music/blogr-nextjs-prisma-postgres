@@ -12,19 +12,20 @@ generator client {
 }
 
 model Street {
-  id                String  @id @default(cuid())
+  id                Int       @id @default(autoincrement())
   name              String?
   from              String?
   to                String?
-  width             Int?
-  length            Int?
+  width             String?
+  length            String?
   date              String?
   noncity           String?
   unnacceptedlength String?
-
+  area              Int?      @default(0)
+  createdAt         DateTime  @default(now()) @map(name: "created_at")
+  updatedAt         DateTime  @default(now()) @map(name: "updated_at")
   @@map(name: "street")
 }
-
 
 model Post {
   id        String  @id @default(cuid())

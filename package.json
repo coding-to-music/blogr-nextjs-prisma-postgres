@@ -13,6 +13,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "seed": "prisma db push && node prisma/seed/index.js",
     "deploy": "git add . && git commit -m Build && git push && vercel --prod"
   },
   "keywords": [],
