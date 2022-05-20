@@ -19,6 +19,7 @@ DATABASE_URL: Copy this value directly from your .env file
 GITHUB_ID: Set this to the Client ID of the GitHub OAuth app you just created
 GITHUB_SECRET: Set this to the Client Secret of the GitHub OAuth app you just created
 NEXTAUTH_URL: Set this to the Authorization Callback URL of the GitHub OAuth app you just created
+
 ```
 
 ## GitHub
