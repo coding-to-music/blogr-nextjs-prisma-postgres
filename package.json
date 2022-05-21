@@ -16,7 +16,8 @@
     "lint:write": "next lint --cache --fix",
     "seed": "prisma db push && node prisma/seed/index.js",
     "deploy": "git add . && git commit -m Build && git push && vercel --prod",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "analyze": "ANALYZE=true next build"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
@@ -26,6 +27,7 @@
   "license": "MIT",
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.3",
+    "@next/bundle-analyzer": "^12.1.6",
     "@prisma/client": "^3.14.0",
     "@sentry/nextjs": "^6.19.7",
     "logrocket": "^3.0.0",
