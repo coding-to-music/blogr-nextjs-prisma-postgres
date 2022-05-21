@@ -1546,9 +1546,15 @@ and
 
 https://bvgsoftware.com/blog/how-to-optimize-your-nextjs-production-build/
 
-http://127.0.0.1:5500/.next/server/analyze/client.html
+Right-mouse in the vscode explorer and start live-server on each file:
+
+http://127.0.0.1:5500/.next/analyze/client.html
 
 http://127.0.0.1:5500/.next/server/analyze/server.html
+
+https://carrotsearch.com/foamtree/
+
+https://github.com/Chuqiaoo/foamtree
 
 Use `webpack-bundle-analyzer` in your Next.js project
 
