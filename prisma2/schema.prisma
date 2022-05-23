@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/@internal/prisma/client"
+}
+
+// datasource db {
+//   provider          = "mysql"
+//   url               = env("BLOG_DATABASE_URL")
+//   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+// }
+
+// model Blog {
+//   id    Int    @id @default(autoincrement())
+//   title String
+// }
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+model Street {
+  id                Int       @id @default(autoincrement())
+  name              String?
+  from              String?
+  to                String?
+  width             String?
+  length            String?
+  date              String?
+  noncity           String?
+  unnacceptedlength String?
+  area              Int?      @default(0)
+  createdAt         DateTime  @default(now()) @map(name: "created_at")
+  updatedAt         DateTime  @default(now()) @map(name: "updated_at")
+  @@map(name: "street")
+}
