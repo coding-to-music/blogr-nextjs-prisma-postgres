@@ -3,11 +3,11 @@ import { GetServerSideProps } from "next";
 import Layout from "../components/Layout";
 import Street, { StreetProps } from "../components/Street";
 
-// pages/index.tsx
-import prisma from "../lib/prisma";
+// import prisma from "../lib/prisma";
+import prisma2 from "../lib/prisma2";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const feed = await prisma.street.findMany({
+  const feed = await prisma2.street.findMany({
     // where: { published: true },
     // include: {
     //   author: {
