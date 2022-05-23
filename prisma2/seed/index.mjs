@@ -6,9 +6,18 @@ const prisma = new PrismaClient();
 // const Users = require("./data/users");
 // const Posts = require("./data/posts");
 // const Streets = require("./data/streets");
-import myJsonObject from "./data/streets.js";
-const { Streets } = myJsonObject;
+import myJsonObject from "./data/tinystreets.js";
+// const { Streets } = myJsonObject;
 
+import Streets from "./data/tinystreets.js";
+
+// import myJsonObject from './my-file.json';
+
+// export type Streets = typeof myJsonObject;
+
+// let Streets: typeof myJsonObject;
+
+console.log(myJsonObject);
 console.log(Streets);
 
 // default exported value
