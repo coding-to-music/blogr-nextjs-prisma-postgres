@@ -5,7 +5,23 @@ const prisma = new PrismaClient();
 
 // const Users = require("./data/users");
 // const Posts = require("./data/posts");
-const Streets = require("./data/streets");
+// const Streets = require("./data/streets");
+import myJsonObject from "./data/streets.js";
+const { Streets } = myJsonObject;
+
+console.log(Streets);
+
+// default exported value
+import exportedFunction from "./data/smallstreets.mjs";
+
+// import named exported values through object destructuring
+
+import pkg from "./data/smallstreets.mjs";
+const { constantString, constantNumber } = pkg;
+
+console.log(constantNumber, constantString);
+
+// export type Streets = typeof myJsonObject;
 
 // auto-generate the int id
 // length and width to int
