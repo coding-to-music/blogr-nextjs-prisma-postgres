@@ -2,6 +2,7 @@
   "name": "blogr-nextjs-prisma-postgres",
   "version": "1.0.0",
   "description": "",
+  "possibletype": "module",
   "engines": {
     "node": "16.x"
   },
@@ -20,7 +21,7 @@
     "push2": "npx prisma db push --schema ./prisma2/schema.prisma",
     "schema2:migrate": "npx prisma migrate dev --schema ./prisma2/schema.prisma",
     "seed": "npx prisma db push && node prisma/seed/index.js",
-    "seed:mongo": "npx prisma2 db push && node prisma2/seed/index.js",
+    "seed:mongo": "npm run push2 && node prisma2/seed/index.mjs",
     "deploy": "git add . && git commit -m Build && git push && vercel --prod",
     "prepare": "husky install",
     "analyze": "ANALYZE=true next build"
