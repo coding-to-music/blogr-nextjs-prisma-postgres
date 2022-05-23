@@ -19,6 +19,7 @@
     "migrate": "npx prisma migrate dev",
     "schema2:migrate": "npx prisma migrate dev --schema ./prisma2/schema.prisma",
     "seed": "prisma db push && node prisma/seed/index.js",
+    "seed:mongo": "prisma2 db push && node prisma2/seed/index.js",
     "deploy": "git add . && git commit -m Build && git push && vercel --prod",
     "prepare": "husky install",
     "analyze": "ANALYZE=true next build"
